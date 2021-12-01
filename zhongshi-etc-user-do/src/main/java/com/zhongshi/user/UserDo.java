@@ -42,7 +42,7 @@ import lombok.NoArgsConstructor;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@TableName("zs_etc_user_v2") 
+@TableName("user") 
 public class UserDo extends AbstractBaseDomain{
 	
 	private String username;
