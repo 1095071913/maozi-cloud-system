@@ -35,7 +35,7 @@ package com.zhongshi;
 public class UserApplication extends BaseApplicationDB {
 
 	public static void main(String[] args) {
-		ApplicationRun(UserApplication.class);	
+		ApplicationRun();	
 	}
 
 }
