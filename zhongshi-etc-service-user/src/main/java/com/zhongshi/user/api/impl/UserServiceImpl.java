@@ -47,7 +47,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, UserDo> implements 
 
 	static {
 
-		codes(new CodeHashMap("user") {
+		code(new CodeHashMap() {
 
 			{
 
