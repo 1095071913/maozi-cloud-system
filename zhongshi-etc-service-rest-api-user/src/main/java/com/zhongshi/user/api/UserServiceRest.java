@@ -60,25 +60,25 @@ public interface UserServiceRest{
 	@PostMapping("/userRegister")
 	@ApiOperation(value = "用户注册")
 	default AbstractBaseResult<UserDo> userRegister(@Validated @RequestBody LoginAndRegisterVo loginAndRegisterVo){
-		return BaseResultFactory.error(BaseResultFactory.code(6));
+		return BaseResultFactory.error(BaseResultFactory.baseCode(6));
 	}
 	
 	@PostMapping(value="/login")
 	@ApiOperation(value = "用户登录")
 	default AbstractBaseResult userLogin(@Validated @RequestBody LoginAndRegisterVo loginAndRegisterVo) throws Exception {
-		return BaseResultFactory.error(BaseResultFactory.code(6));
+		return BaseResultFactory.error(BaseResultFactory.baseCode(6));
 	}
 	
 	@GetMapping(value="/logout")
 	@ApiOperation(value = "用户退出")
 	default AbstractBaseResult userLogout(HttpServletRequest request) throws Exception {
-		return BaseResultFactory.error(BaseResultFactory.code(6));
+		return BaseResultFactory.error(BaseResultFactory.baseCode(6));
 	}
 	
 	@GetMapping("/info")
 	@ApiOperation(value = "用户信息")
 	default AbstractBaseResult getUserInfo() {
-		return BaseResultFactory.error(BaseResultFactory.code(6));
+		return BaseResultFactory.error(BaseResultFactory.baseCode(6));
 	}
 	
 }

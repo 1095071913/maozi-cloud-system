@@ -43,11 +43,11 @@ import com.zhongshi.user.UserDto;
 public interface UserServiceRpc{
 	
 	default AbstractBaseResult<UserDto> rpcSelectUserOne(UserDto userDo) {
-		return BaseResultFactory.error(BaseResultFactory.code(6));
+		return BaseResultFactory.error(BaseResultFactory.baseCode(6));
 	}
 	
 	default AbstractBaseResult<Map<String,Object>> rpcSelectUserOne(String username) {
-		return BaseResultFactory.error(BaseResultFactory.code(6));
+		return BaseResultFactory.error(BaseResultFactory.baseCode(6));
 	}
 	
 }

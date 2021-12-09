@@ -23,8 +23,6 @@ import org.springframework.security.crypto.password.MessageDigestPasswordEncoder
 import org.springframework.security.crypto.password.PasswordEncoder;
 import com.zhongshi.api.base.service.impl.ServiceImpl;
 import com.zhongshi.factory.result.AbstractBaseResult;
-import com.zhongshi.factory.result.code.CodeAttribute;
-import com.zhongshi.factory.result.code.CodeHashMap;
 import com.zhongshi.sso.OauthUserDetails;
 import com.zhongshi.user.UserDo;
 import com.zhongshi.user.api.UserService;
@@ -44,42 +42,6 @@ import com.zhongshi.user.mapper.UserMapper;
  *
  */
 public class UserServiceImpl extends ServiceImpl<UserMapper, UserDo> implements UserService {
-
-	static {
-
-		code(new CodeHashMap() {
-
-			{
-
-				this.put(new CodeAttribute<String>(2001, "图形认证码不正确"));
-
-				this.put(new CodeAttribute<String>(2002, "用户已存在"));
-
-				this.put(new CodeAttribute<String>(2003, "账号或密码错误"));
-
-				this.put(new CodeAttribute<String>(2004, "用户注册失败"));
-
-				this.put(new CodeAttribute<String>(2005, "用户密码错误"));
-
-				this.put(new CodeAttribute<String>(2006, "用户旧密码或新密码不能为空"));
-
-				this.put(new CodeAttribute<String>(2007, "用户未登录"));
-
-				this.put(new CodeAttribute<String>(2008, "用戶文件上传失败"));
-
-				this.put(new CodeAttribute<String>(2009, "用戶未上传图片"));
-
-				this.put(new CodeAttribute<String>(2010, "用户不存在"));
-
-				this.put(new CodeAttribute<String>(2011, "Refresh Token 为空"));
-				
-				this.put(new CodeAttribute<String>(2012, "用户名为空"));
-
-			}
-
-		});
-
-	}
 	
 	protected PasswordEncoder passwordEncoder = new MessageDigestPasswordEncoder("MD5");
 
