@@ -5,7 +5,7 @@ import com.zhongshi.base.AbstractBaseDtomain;
 import lombok.Data;
 
 @Data
-public class UserDto extends AbstractBaseDtomain<UserDo>{
+public class UserDto extends AbstractBaseDtomain{
 
 	private String username;
 	

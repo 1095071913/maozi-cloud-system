@@ -18,7 +18,7 @@
 package com.zhongshi.user.api;
 
 import com.baomidou.mybatisplus.extension.service.IService;
-import com.zhongshi.user.UserDo;
+import com.zhongshi.user.domain.UserDo;
 
 /**
  * 

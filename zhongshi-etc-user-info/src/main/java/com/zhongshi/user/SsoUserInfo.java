@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class SsoUserInfo extends AbstractBaseDtomain<UserDo>{
+public class SsoUserInfo extends AbstractBaseDtomain{
 	
 	private String username;
 	

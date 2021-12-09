@@ -17,10 +17,8 @@
 
 package com.zhongshi.user.mapper;
 
-import java.util.List;
-import org.apache.ibatis.annotations.Param;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.zhongshi.user.UserDo;
+import com.zhongshi.user.domain.UserDo;
 
 /**
  * 
@@ -37,10 +35,4 @@ import com.zhongshi.user.UserDo;
  */
 
 
-public interface UserMapper extends BaseMapper<UserDo>{
-	
-	public List<UserDo> selectUserToTest(@Param("user")UserDo user);
-
-	public List<UserDo> selectUserToTest1(@Param("user")UserDo user);
-	
-} 
+public interface UserMapper extends BaseMapper<UserDo>{} 

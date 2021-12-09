@@ -19,13 +19,15 @@
 package com.zhongshi.user.api.impl;
 
 import java.util.Map;
+
 import org.springframework.security.crypto.password.MessageDigestPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
+
 import com.zhongshi.api.base.service.impl.ServiceImpl;
 import com.zhongshi.factory.result.AbstractBaseResult;
 import com.zhongshi.sso.OauthUserDetails;
-import com.zhongshi.user.UserDo;
 import com.zhongshi.user.api.UserService;
+import com.zhongshi.user.domain.UserDo;
 import com.zhongshi.user.mapper.UserMapper;
   
 /**

@@ -18,6 +18,12 @@
 
 
 		<!-- zhongshi-etc-cloud Begin -->
+		<dependency>  
+			<groupId>com.zhongshi</groupId>
+			<artifactId>zhongshi-etc-do</artifactId> 
+			<type>pom</type>
+		</dependency>
+		
 		<dependency>
 			<groupId>com.zhongshi</groupId>
 			<artifactId>zhongshi-etc-service-impl</artifactId>

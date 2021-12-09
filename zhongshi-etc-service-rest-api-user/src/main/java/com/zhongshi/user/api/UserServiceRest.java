@@ -17,22 +17,19 @@
 
 package com.zhongshi.user.api;
 
-import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
-import com.zhongshi.uservo.QueryUserVo;
-import com.zhongshi.uservo.UpdateUserVo;
 
-import org.springframework.validation.BindingResult;
-import org.springframework.validation.annotation.Validated; 
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
 import com.zhongshi.factory.BaseResultFactory;
 import com.zhongshi.factory.result.AbstractBaseResult;
-import com.zhongshi.user.UserDo;
 import com.zhongshi.uservo.LoginAndRegisterVo;
+
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 
@@ -59,7 +56,7 @@ public interface UserServiceRest{
 	
 	@PostMapping("/userRegister")
 	@ApiOperation(value = "用户注册")
-	default AbstractBaseResult<UserDo> userRegister(@Validated @RequestBody LoginAndRegisterVo loginAndRegisterVo){
+	default AbstractBaseResult userRegister(@Validated @RequestBody LoginAndRegisterVo loginAndRegisterVo){
 		return BaseResultFactory.error(BaseResultFactory.baseCode(6));
 	}
 	

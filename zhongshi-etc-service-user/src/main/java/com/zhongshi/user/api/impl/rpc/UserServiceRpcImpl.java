@@ -1,12 +1,13 @@
 package com.zhongshi.user.api.impl.rpc;
 
 import java.util.Map;
+
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.zhongshi.factory.result.AbstractBaseResult;
 import com.zhongshi.tool.MapperUtils;
-import com.zhongshi.user.UserDo;
 import com.zhongshi.user.UserDto;
 import com.zhongshi.user.api.impl.UserServiceImpl;
+import com.zhongshi.user.domain.UserDo;
 import com.zhongshi.user.rpc.api.UserServiceRpc;
 
 public class UserServiceRpcImpl extends UserServiceImpl implements UserServiceRpc {

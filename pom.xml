@@ -108,12 +108,6 @@
 				<artifactId>zhongshi-etc-user-vo</artifactId>
 				<version>${zhongshi-etc-user-vo.version}</version>
 			</dependency>
-   
-			<dependency>
-				<groupId>com.zhongshi</groupId>
-				<artifactId>zhongshi-etc-user-do</artifactId>
-				<version>${zhongshi-etc-user-do.version}</version>
-			</dependency>
 
 			<dependency>
 				<groupId>com.zhongshi</groupId>
@@ -209,7 +203,6 @@
 
 
 	<modules>
-		<module>zhongshi-etc-user-do</module>
 		<module>zhongshi-etc-user-vo</module>
 		<module>zhongshi-etc-user-dto</module>
 		<module>zhongshi-etc-service-rpc-api-user</module>

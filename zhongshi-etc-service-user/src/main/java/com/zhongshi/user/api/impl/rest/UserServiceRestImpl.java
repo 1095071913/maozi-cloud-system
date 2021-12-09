@@ -18,16 +18,19 @@
 package com.zhongshi.user.api.impl.rest;
 
 import java.util.Map;
+
 import javax.servlet.http.HttpServletRequest;
+
 import org.apache.dubbo.config.annotation.DubboReference;
 import org.springframework.security.oauth2.common.DefaultOAuth2AccessToken;
+
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.google.common.collect.Maps;
 import com.zhongshi.factory.result.AbstractBaseResult;
 import com.zhongshi.sso.api.OauthTokenServiceRpc;
-import com.zhongshi.user.UserDo;
 import com.zhongshi.user.api.UserServiceRest;
 import com.zhongshi.user.api.impl.UserServiceImpl;
+import com.zhongshi.user.domain.UserDo;
 import com.zhongshi.uservo.LoginAndRegisterVo;
 
 /**

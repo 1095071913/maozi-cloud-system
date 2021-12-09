@@ -20,7 +20,6 @@ package com.zhongshi.uservo;
 
 import javax.validation.constraints.NotNull;
 import com.zhongshi.base.AbstractBaseVomain;
-import com.zhongshi.user.UserDo;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
@@ -42,7 +41,7 @@ import lombok.Data;
 
 @Data
 @ApiModel(value ="LoginAndRegisterVo",description="登录与注册")
-public class LoginAndRegisterVo extends AbstractBaseVomain<UserDo>{
+public class LoginAndRegisterVo extends AbstractBaseVomain{
     
 	@ApiModelProperty(value = "用户名", required = true)
 	@NotNull(message = "用户名不能为空")
