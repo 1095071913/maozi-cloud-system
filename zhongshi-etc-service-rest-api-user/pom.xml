@@ -19,11 +19,13 @@
 		<dependency>
 			<groupId>com.zhongshi</groupId>
 			<artifactId>zhongshi-etc-user-vo</artifactId>
+			<version>${zhongshi-etc-user-vo.version}</version>
 		</dependency>   
-		
+		 
 		<dependency>
 			<groupId>com.zhongshi</groupId>
 			<artifactId>zhongshi-etc-service-rest-api</artifactId>
+			<version>${zhongshi-etc-service-rest-api.version}</version>
 			<type>pom</type>
 		</dependency>
 		<!-- User End -->

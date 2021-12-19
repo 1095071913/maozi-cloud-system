@@ -21,18 +21,21 @@
 		<dependency>  
 			<groupId>com.zhongshi</groupId>
 			<artifactId>zhongshi-etc-do</artifactId> 
+			<version>${zhongshi-etc-do.version}</version>
 			<type>pom</type>
 		</dependency>
 		
 		<dependency>
 			<groupId>com.zhongshi</groupId>
 			<artifactId>zhongshi-etc-service-impl</artifactId>
+			<version>${zhongshi-etc-service-impl.version}</version>
 			<type>pom</type>
 		</dependency>
 
 		<dependency>
 			<groupId>com.zhongshi</groupId>
 			<artifactId>zhongshi-etc-service-base-impl</artifactId>
+			<version>${zhongshi-etc-service-base-impl.version}</version>
 		</dependency>
 		<!-- zhongshi-etc-cloud End -->
 
@@ -44,21 +47,19 @@
 		<dependency>
 			<groupId>com.zhongshi</groupId>
 			<artifactId>zhongshi-etc-service-rest-api-user</artifactId>
+			<version>${zhongshi-etc-service-rest-api-user.version}</version>
 		</dependency>
 
 		<dependency>
 			<groupId>com.zhongshi</groupId>
 			<artifactId>zhongshi-etc-service-rpc-api-user</artifactId>
+			<version>${zhongshi-etc-service-rpc-api-user.version}</version>
 		</dependency>
-
-		<dependency>
-			<groupId>com.zhongshi</groupId>
-			<artifactId>zhongshi-etc-user-dto</artifactId>
-		</dependency>  
 		
 		<dependency>
-			<groupId>com.zhongshi</groupId>
+			<groupId>com.zhongshi</groupId> 
 			<artifactId>zhongshi-etc-user-info</artifactId>
+			<version>${zhongshi-etc-user-info.version}</version>
 		</dependency>
 		<!-- User End -->
 

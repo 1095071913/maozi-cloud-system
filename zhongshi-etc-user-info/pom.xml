@@ -13,6 +13,7 @@
 		<dependency>
 			<groupId>com.zhongshi</groupId>
 			<artifactId>zhongshi-etc-dto</artifactId>
+			<version>${zhongshi-etc-dto.version}</version>
 			<type>pom</type>
 		</dependency>
 	</dependencies>

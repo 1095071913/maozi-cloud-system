@@ -17,6 +17,7 @@
 		<dependency>
 			<groupId>com.zhongshi</groupId>
 			<artifactId>zhongshi-etc-vo</artifactId>
+			<version>${zhongshi-etc-vo.version}</version>
 			<type>pom</type>
 		</dependency>    
 		<!-- Project Begin -->   
