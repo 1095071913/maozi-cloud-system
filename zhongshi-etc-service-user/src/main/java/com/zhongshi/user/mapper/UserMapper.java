@@ -17,7 +17,7 @@
 
 package com.zhongshi.user.mapper;
 
-import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.github.yulichang.base.MPJBaseMapper;
 import com.zhongshi.user.domain.UserDo;
 
 /**
@@ -35,4 +35,4 @@ import com.zhongshi.user.domain.UserDo;
  */
 
 
-public interface UserMapper extends BaseMapper<UserDo>{} 
+public interface UserMapper extends MPJBaseMapper<UserDo>{} 

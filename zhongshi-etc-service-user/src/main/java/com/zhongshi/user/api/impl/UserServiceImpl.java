@@ -23,7 +23,7 @@ import java.util.Map;
 import org.springframework.security.crypto.password.MessageDigestPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
-import com.zhongshi.api.base.service.impl.ServiceImpl;
+import com.github.yulichang.base.MPJBaseServiceImpl;
 import com.zhongshi.factory.result.AbstractBaseResult;
 import com.zhongshi.sso.OauthUserDetails;
 import com.zhongshi.user.api.UserService;
@@ -43,7 +43,9 @@ import com.zhongshi.user.mapper.UserMapper;
  * 协议说明：Apache2.0（ 文件顶端 ）
  *
  */
-public class UserServiceImpl extends ServiceImpl<UserMapper, UserDo> implements UserService {
+public class UserServiceImpl extends MPJBaseServiceImpl<UserMapper, UserDo> implements UserService {
+	
+	public UserServiceImpl() { setServiceName("user"); }
 	
 	protected PasswordEncoder passwordEncoder = new MessageDigestPasswordEncoder("MD5");
 

@@ -16,10 +16,6 @@
  */
 
 package com.zhongshi.user.api;
-
-import com.baomidou.mybatisplus.extension.service.IService;
-import com.zhongshi.user.domain.UserDo;
-
 /**
  * 
  * 	功能说明：User私有函数
@@ -34,4 +30,4 @@ import com.zhongshi.user.domain.UserDo;
  *
  */
 
-public interface UserService extends IService<UserDo> {}
+public interface UserService{}
