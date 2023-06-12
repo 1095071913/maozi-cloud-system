@@ -1,0 +1,80 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>com.maozi</groupId>
+		<artifactId>maozi-cloud-system</artifactId>
+		<version>${revision}</version>
+	</parent>
+	<artifactId>maozi-cloud-service-system</artifactId>
+
+	<dependencies>
+		
+		<dependency>
+			<groupId>com.maozi</groupId>
+			<artifactId>maozi-cloud-service-db-impl</artifactId>
+			<version>${maozi-cloud-service-db-impl.version}</version>
+		</dependency>
+
+		<!-- System Begin -->
+		<dependency>
+			<groupId>com.maozi</groupId>
+			<artifactId>maozi-cloud-service-rest-api-system</artifactId>
+			<version>${maozi-cloud-service-rest-api-system.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.maozi</groupId>
+			<artifactId>maozi-cloud-service-rpc-api-system</artifactId>
+			<version>${maozi-cloud-service-rpc-api-system.version}</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>com.maozi</groupId>
+			<artifactId>maozi-cloud-service-rpc-api-system-config</artifactId>
+			<version>${maozi-cloud-service-rpc-api-system-config.version}</version>
+		</dependency>
+		<!-- System End -->
+		
+		<dependency>
+			<groupId>com.maozi</groupId>
+			<artifactId>maozi-cloud-service-rpc-api-sso</artifactId>
+			<version>${maozi-cloud-service-rpc-api-sso.version}</version>
+		</dependency>
+
+	</dependencies>
+
+
+
+
+
+
+	<!-- boot打包 Begin -->
+	<build>
+		<finalName>${parent.artifactId}</finalName>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+				<version>2.1.5.RELEASE</version>
+				<configuration>
+					<mainClass>${application-run}</mainClass>
+				</configuration>
+				<executions>
+					<execution>
+						<goals>
+							<goal>repackage</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+	<!-- boot打包 End -->
+
+
+
+
+
+</project>

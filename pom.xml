@@ -5,30 +5,32 @@
 	<parent>
 		<groupId>com.maozi</groupId>
 		<artifactId>maozi-cloud-parent</artifactId>
-		<version>1.5.0-SNAPSHOT</version>
+		<version>1.0.0-SNAPSHOT</version>
 	</parent>
-	<artifactId>maozi-cloud-user</artifactId>
-	<version>1.0.0-SNAPSHOT</version>
+	<artifactId>maozi-cloud-system</artifactId>
+	<version>${revision}</version>
 	<packaging>pom</packaging>
 
 
 	<properties>
+		
+		<revision>1.2.0-SNAPSHOT</revision>
 
-		<application-run>com.maozi.UserApplication</application-run>
+		<application-run>com.maozi.SystemApplication</application-run>
 
-		<!-- User Begin -->
-		<maozi-cloud-user-vo.version>1.0.0-SNAPSHOT</maozi-cloud-user-vo.version>
-		<maozi-cloud-user-do.version>1.0.0-SNAPSHOT</maozi-cloud-user-do.version>
-		<maozi-cloud-user-dto.version>1.0.0-SNAPSHOT</maozi-cloud-user-dto.version>
-		<maozi-cloud-user-enum.version>1.0.0-SNAPSHOT</maozi-cloud-user-enum.version>
-		<maozi-cloud-service-rpc-api-user.version>1.0.0-SNAPSHOT</maozi-cloud-service-rpc-api-user.version>
-		<maozi-cloud-service-rest-api-user.version>1.0.0-SNAPSHOT</maozi-cloud-service-rest-api-user.version>
-		<!-- User End -->
+		<!-- System Begin -->
+		<maozi-cloud-system-vo.version>${revision}</maozi-cloud-system-vo.version>
+		<maozi-cloud-system-do.version>${revision}</maozi-cloud-system-do.version>
+		<maozi-cloud-system-dto.version>${revision}</maozi-cloud-system-dto.version>
+		<maozi-cloud-system-enum.version>${revision}</maozi-cloud-system-enum.version>
+		<maozi-cloud-service-rpc-api-system.version>${revision}</maozi-cloud-service-rpc-api-system.version>
+		<maozi-cloud-service-rest-api-system.version>${revision}</maozi-cloud-service-rest-api-system.version>
+		<!-- System End -->
 		
 		
-		<maozi-cloud-sso-user.version>1.0.0-SNAPSHOT</maozi-cloud-sso-user.version>
+		<maozi-cloud-sso-system.version>1.2.0-SNAPSHOT</maozi-cloud-sso-system.version>
+		<maozi-cloud-service-rpc-api-sso.version>1.2.0-SNAPSHOT</maozi-cloud-service-rpc-api-sso.version>
 		
-		<maozi-cloud-service-rpc-api-sso.version>1.0.0-SNAPSHOT</maozi-cloud-service-rpc-api-sso.version>
 
 	</properties>
 
@@ -37,12 +39,12 @@
 
 
 	<modules>
-		<module>maozi-cloud-user-vo</module>
-		<module>maozi-cloud-user-dto</module>
-		<module>maozi-cloud-service-rpc-api-user</module>
-		<module>maozi-cloud-service-rest-api-user</module>
-		<module>maozi-cloud-service-user</module>
-		<module>maozi-cloud-user-enum</module>
+		<module>maozi-cloud-system-vo</module>
+		<module>maozi-cloud-system-dto</module>
+		<module>maozi-cloud-system-enum</module>
+		<module>maozi-cloud-service-rpc-api-system</module>
+		<module>maozi-cloud-service-rest-api-system</module>
+		<module>maozi-cloud-service-system</module>
 	</modules>
 
 
