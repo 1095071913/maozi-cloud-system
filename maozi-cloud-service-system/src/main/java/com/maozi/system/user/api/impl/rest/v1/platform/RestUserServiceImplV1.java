@@ -17,20 +17,9 @@
 
 package com.maozi.system.user.api.impl.rest.v1.platform;
 
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
-import java.util.stream.Collectors;
-
-import org.apache.commons.compress.utils.Lists;
-
-import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
-import com.github.yulichang.toolkit.MPJWrappers;
-import com.github.yulichang.wrapper.MPJLambdaWrapper;
 import com.maozi.base.annotation.RestService;
 import com.maozi.base.enums.Status;
 import com.maozi.base.param.PageParam;
-import com.maozi.base.result.DropDownResult;
 import com.maozi.base.result.PageResult;
 import com.maozi.common.result.AbstractBaseResult;
 import com.maozi.sso.oauth.dto.platform.dto.OauthToken;
@@ -75,57 +64,7 @@ public class RestUserServiceImplV1 extends UserServiceImpl implements RestUserSe
 
 	@Override
 	public AbstractBaseResult<PageResult<ListVo>> restList(PageParam<ListParam> pageParam) {
-		
-		MPJLambdaWrapper<UserDo> wrapper = MPJWrappers.lambdaJoin();
-		
-		wrapper.select(UserDo::getId,UserDo::getName,UserDo::getClientId,UserDo::getStatus,UserDo::getUpdateTime);
-		
-		ListParam param = pageParam.getData();
-		if(isNotNull(param)) {
-			
-			wrapper.likeRight(isNotNull(param.getName()),UserDo::getName, param.getName());
-			
-			param.initOrderParam();
-			
-			List<String> asc = param.getOrderAscFieldsMap().get("t");
-			
-			List<String> desc = param.getOrderDescFieldsMap().get("t");
-			
-			wrapper.orderByAscStr(asc.size() > 0 , asc );
-			
-			wrapper.orderByDescStr(desc.size() > 0 , desc );
-			
-		}
-		
-		Page<UserDo> page = page(convertPage(pageParam),wrapper);
-		
-		List<UserDo> domains = page.getRecords();
-		
-		List<ListVo> responses = Lists.newArrayList();
-		
-		if(collectionIsNotEmpty(domains)) {
-			
-			Set<Long> clientIds = domains.stream().map(UserDo::getClientId).collect(Collectors.toSet());
-			
-			List<DropDownResult> clients = rpcClientServiceV1.dropDownListResult(clientIds).getResultDataThrowError();
-			
-			Map<Long, DropDownResult> clientsMap = toMapByIds(clients,DropDownResult::getId);
-			
-			domains.stream().forEach(domain->{
-				
-				ListVo response = copy(domain, ListVo.class);
-				
-				response.setClient(clientsMap.get(domain.getClientId()));
-				
-				responses.add(response);
-				
-			});
-			
-			
-		}
-		
-		return success(convertPageResult(page, responses));
-		
+		return success(listRelation(pageParam,ListVo::new));
 	}
 	
 	@Override
@@ -149,17 +88,7 @@ public class RestUserServiceImplV1 extends UserServiceImpl implements RestUserSe
 		
 		@Override
 		public AbstractBaseResult<InfoVo> restGet(Long id) {
-			
-			UserDo domain = getByIdThrowError(id,UserDo::getUsername,UserDo::getClientId,UserDo::getName,UserDo::getIcon,UserDo::getStatus);
-			
-			InfoVo response = copy(domain, InfoVo.class);
-			
-			response.setRoleIds(userRoleService.getRolesByUser(id));	
-			
-			response.setClient(rpcClientServiceV1.dropDownResult(domain.getClientId()).getResultDataThrowError());
-			
-			return success(response);
-			
+			return success(getByIdThrowErrorRelation(id,InfoVo.class));
 		}
 		
 		@Override
@@ -197,15 +126,7 @@ public class RestUserServiceImplV1 extends UserServiceImpl implements RestUserSe
 		
 		@Override
 		public AbstractBaseResult<IndividualInfoVo> restIndividualGet() {
-			
-			String username = getCurrentUserName();
-			
-			IndividualInfoVo response = getByUsername(username,IndividualInfoVo.class,getColumns(UserDo::getName,UserDo::getIcon));
-			
-			response.setPermissions(getPermissions());
-			
-			return success(response);
-			
+			return success(getByUsername(getCurrentUserName(),IndividualInfoVo.class,getColumns(UserDo::getName,UserDo::getIcon)));
 		}
 
 		@Override

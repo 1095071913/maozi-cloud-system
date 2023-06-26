@@ -27,6 +27,7 @@ import org.springframework.security.core.context.SecurityContext;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
+import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.github.yulichang.toolkit.MPJWrappers;
 import com.github.yulichang.wrapper.MPJLambdaWrapper;
 import com.maozi.base.api.impl.BaseServiceImpl;
@@ -129,7 +130,10 @@ public class RolePermissionServiceImpl extends BaseServiceImpl<RolePermissionMap
 		return list(wrapper).stream().map(RolePermissionDo::getPermissionId).collect(Collectors.toList());
 		
 	}
-	
-	
+
+	@Override
+	public void roleUnbind(Long roleId) {
+		remove(Wrappers.lambdaQuery(RolePermissionDo.builder().roleId(roleId).build()));
+	}
 
 }

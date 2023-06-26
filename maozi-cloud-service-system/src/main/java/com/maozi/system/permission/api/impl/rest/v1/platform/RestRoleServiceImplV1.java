@@ -37,13 +37,7 @@ public class RestRoleServiceImplV1 extends RoleServiceImpl implements RestRoleSe
 
 		@Override
 		public AbstractBaseResult<InfoVo> restGet(Long id) {
-			
-			InfoVo response = getByIdThrowError(id, InfoVo.class, RoleDo::getName,RoleDo::getDescription,RoleDo::getStatus);
-			
-			response.setPermissionIds(rolePermissionService.getPermissionsByRole(id));
-			
-			return success(response);
-			
+			return success(getByIdThrowErrorRelation(id, InfoVo.class));
 		}
 
 		@Override
@@ -58,9 +52,13 @@ public class RestRoleServiceImplV1 extends RoleServiceImpl implements RestRoleSe
 			
 			List<Long> userIds = userRoleService.getUsersByRole(id);
 			
-			List<ClientUserParam> clientUsers = userService.getClientUsers(userIds);
-			
-			rpcOauthTokenService.rpcDestroys(clientUsers).getResultDataThrowError();
+			if(collectionIsNotEmpty(userIds)) {
+				
+				List<ClientUserParam> clientUsers = userService.getClientUsers(userIds);
+				
+				rpcOauthTokenService.rpcDestroys(clientUsers).getResultDataThrowError();
+				
+			}
 			
 			return success(null);
 			

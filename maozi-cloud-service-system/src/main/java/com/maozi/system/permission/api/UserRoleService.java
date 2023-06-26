@@ -13,5 +13,7 @@ public interface UserRoleService {
 	List<Long> getUsersByRole(Long roleId);
 	
 	void hasUserBindRole(Long userId,Long roleId);
+	
+	void userUnbind(Long userId);
 
 }

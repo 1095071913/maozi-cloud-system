@@ -9,6 +9,7 @@ import org.springframework.security.core.context.SecurityContext;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
+import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.github.yulichang.toolkit.MPJWrappers;
 import com.github.yulichang.wrapper.MPJLambdaWrapper;
 import com.maozi.base.api.impl.BaseServiceImpl;
@@ -101,6 +102,11 @@ public class UserRoleServiceImpl extends BaseServiceImpl<UserRoleMapper,UserRole
 		
 		return list(wrapper).stream().map(UserRoleDo::getUserId).collect(Collectors.toList());
 		
+	}
+
+	@Override
+	public void userUnbind(Long userId) {
+		remove(Wrappers.lambdaQuery(UserRoleDo.builder().userId(userId).build()));
 	}
 
 }

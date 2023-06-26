@@ -38,6 +38,11 @@ public class RoleServiceImpl extends BaseServiceImpl<RoleMapper,RoleDo,Void> imp
 	protected void checkBind(Long id) {
 		userRoleService.checkUserBindRoleByRole(id);
 	}
+	
+	@Override
+	protected void unbind(Long id) {
+		rolePermissionService.roleUnbind(id);
+	}
 
 	@Override
 	public boolean has(Long id) {
@@ -46,7 +51,7 @@ public class RoleServiceImpl extends BaseServiceImpl<RoleMapper,RoleDo,Void> imp
 	
 	protected Long restSaveUpdate(Long id,SaveUpdateParam param) {
 		
-		id = saveUpdate(null,param);
+		id = saveUpdate(id,param);
 		
 		rolePermissionService.updateBind(id, param.getBindPermissionIds(), param.getUnbindPermissionIds());
 		

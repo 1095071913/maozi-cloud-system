@@ -96,7 +96,7 @@ public class UserServiceImpl extends BaseServiceImpl<UserMapper,UserDo,SystemUse
 		
 		wrapper.select(columns);
 		
-		return getByIdThrowError(wrapper,clazz);
+		return getByParamThrowErrorRelation(wrapper,clazz);
 		
 	}
 	
@@ -164,6 +164,11 @@ public class UserServiceImpl extends BaseServiceImpl<UserMapper,UserDo,SystemUse
 		
 		return list(wrapper,ClientUserParam::new);
 		
+	}
+	
+	@Override
+	public void unbind(Long id) {
+		userRoleService.userUnbind(id);
 	}
 	
 }

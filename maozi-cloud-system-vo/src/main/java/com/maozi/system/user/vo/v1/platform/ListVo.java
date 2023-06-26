@@ -1,7 +1,9 @@
 package com.maozi.system.user.vo.v1.platform;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.maozi.base.AbstractBaseVomain;
 import com.maozi.base.enums.Status;
+import com.maozi.base.plugin.QueryRelation;
 import com.maozi.base.result.DropDownResult;
 
 import io.swagger.annotations.ApiModelProperty;
@@ -19,8 +21,9 @@ public class ListVo extends AbstractBaseVomain {
 	
 	@ApiModelProperty("名称")
 	private String name;
-	
+
 	@ApiModelProperty("客户端")
+	@QueryRelation(relationField = "clientId",isService = true,serviceName = "rpcClientServiceV1")
 	private DropDownResult client;
 	
 	@ApiModelProperty(value = "状态",dataType = "com.maozi.base.result.EnumResult")
@@ -28,5 +31,9 @@ public class ListVo extends AbstractBaseVomain {
 	
 	@ApiModelProperty("更新时间")
 	private Long updateTime;
+	
+	@JsonIgnore
+	@ApiModelProperty(hidden = true)
+	private Long clientId;
 	
 }

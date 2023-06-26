@@ -22,7 +22,7 @@ public class RestPermissionServiceImplV1 extends PermissionServiceImpl implement
 		
 		MPJLambdaWrapper<PermissionDo> wrapper = MPJWrappers.lambdaJoin();
 		
-		wrapper.select(PermissionDo::getId,PermissionDo::getParentId,PermissionDo::getName,PermissionDo::getIcon,PermissionDo::getMark,PermissionDo::getType);
+		wrapper.select(getColumns(ListVo.class));
 		
 		wrapper.orderByDesc(PermissionDo::getLevel,PermissionDo::getSort);
 		

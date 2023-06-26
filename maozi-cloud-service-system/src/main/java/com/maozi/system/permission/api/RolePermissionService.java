@@ -43,5 +43,7 @@ public interface RolePermissionService {
 	Collection<Long> getPermissionsByRoles(List<Long> roleIds);
 	
 	List<Long> getPermissionsByRole(Long roleId);
+	
+	void roleUnbind(Long roleId);
 
 }
