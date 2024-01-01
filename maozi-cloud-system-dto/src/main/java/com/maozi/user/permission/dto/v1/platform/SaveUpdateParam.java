@@ -17,12 +17,10 @@
 
 package com.maozi.user.permission.dto.v1.platform;
 
-import javax.validation.constraints.NotNull;
-
 import com.maozi.base.AbstractBaseDtomain;
 import com.maozi.system.permission.enums.PermissionType;
-
 import io.swagger.annotations.ApiModelProperty;
+import javax.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

@@ -1,17 +1,15 @@
 package com.maozi.system.user.api.impl.rpc.v1;
 
-import java.util.Collection;
-import java.util.List;
-
-import org.apache.commons.compress.utils.Lists;
-import org.apache.dubbo.config.annotation.DubboService;
-
 import com.github.yulichang.toolkit.MPJWrappers;
 import com.github.yulichang.wrapper.MPJLambdaWrapper;
+import com.google.common.collect.Lists;
 import com.maozi.common.result.AbstractBaseResult;
 import com.maozi.system.user.api.impl.UserServiceImpl;
 import com.maozi.system.user.api.rpc.v1.RpcUserServiceV1;
 import com.maozi.system.user.domain.UserDo;
+import java.util.Collection;
+import java.util.List;
+import org.apache.dubbo.config.annotation.DubboService;
 
 @DubboService
 public class RpcUserServiceImplV1 extends UserServiceImpl implements RpcUserServiceV1 {

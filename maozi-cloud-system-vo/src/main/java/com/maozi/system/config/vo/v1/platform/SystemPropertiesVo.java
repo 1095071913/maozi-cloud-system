@@ -1,7 +1,6 @@
 package com.maozi.system.config.vo.v1.platform;
 
 import com.maozi.base.AbstractBaseVomain;
-
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 

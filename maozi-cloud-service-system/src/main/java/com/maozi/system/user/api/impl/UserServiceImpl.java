@@ -18,22 +18,12 @@
 
 package com.maozi.system.user.api.impl;
 
-import java.util.List;
-
-import javax.annotation.Resource;
-
-import org.apache.dubbo.config.annotation.DubboReference;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.security.crypto.password.MessageDigestPasswordEncoder;
-import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.stereotype.Service;
-
 import com.github.yulichang.toolkit.MPJWrappers;
 import com.github.yulichang.wrapper.MPJLambdaWrapper;
 import com.maozi.base.api.impl.BaseServiceImpl;
-import com.maozi.sso.client.api.rpc.v1.RpcClientServiceV1;
-import com.maozi.sso.oauth.api.rpc.v1.RpcOauthTokenServiceV1;
-import com.maozi.sso.oauth.dto.platform.param.ClientUserParam;
+import com.maozi.oauth.client.api.rpc.v1.RpcClientServiceV1;
+import com.maozi.oauth.token.api.rpc.v1.RpcOauthTokenServiceV1;
+import com.maozi.oauth.token.dto.platform.param.ClientUserParam;
 import com.maozi.system.permission.api.PermissionService;
 import com.maozi.system.permission.api.RolePermissionService;
 import com.maozi.system.permission.api.UserRoleService;
@@ -42,6 +32,13 @@ import com.maozi.system.user.domain.UserDo;
 import com.maozi.system.user.mapper.UserMapper;
 import com.maozi.user.SystemUser;
 import com.maozi.user.user.dto.v1.platform.SaveUpdateParam;
+import java.util.List;
+import javax.annotation.Resource;
+import org.apache.dubbo.config.annotation.DubboReference;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.security.crypto.password.MessageDigestPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.stereotype.Service;
   
 /**
  * 

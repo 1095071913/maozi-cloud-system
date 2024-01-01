@@ -1,17 +1,16 @@
 package com.maozi.system.permission.api.impl.rest.v1.platform;
 
-import java.util.List;
-
 import com.maozi.base.annotation.RestService;
 import com.maozi.base.result.DropDownResult;
 import com.maozi.common.result.AbstractBaseResult;
-import com.maozi.sso.oauth.dto.platform.param.ClientUserParam;
+import com.maozi.oauth.token.dto.platform.param.ClientUserParam;
 import com.maozi.system.permission.api.impl.RoleServiceImpl;
 import com.maozi.system.permission.api.rest.v1.platform.RestRoleServiceV1;
 import com.maozi.system.permission.domain.RoleDo;
 import com.maozi.system.role.vo.v1.platform.InfoVo;
 import com.maozi.system.role.vo.v1.platform.ListVo;
 import com.maozi.user.role.dto.v1.platform.SaveUpdateParam;
+import java.util.List;
 
 @RestService
 public class RestRoleServiceImplV1 extends RoleServiceImpl implements RestRoleServiceV1 {

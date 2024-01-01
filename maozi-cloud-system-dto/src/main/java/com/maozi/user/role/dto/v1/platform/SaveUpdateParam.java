@@ -1,11 +1,9 @@
 package com.maozi.user.role.dto.v1.platform;
 
-import java.util.List;
-
 import com.maozi.base.AbstractBaseDtomain;
 import com.maozi.base.enums.Status;
-
 import io.swagger.annotations.ApiModelProperty;
+import java.util.List;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

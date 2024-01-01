@@ -1,15 +1,13 @@
 package com.maozi.user.user.dto.v1.platform;
 
+import com.maozi.base.AbstractBaseDtomain;
+import com.maozi.base.param.plugin.OrderParam;
+import com.maozi.base.plugin.query.QueryBaseType;
+import com.maozi.base.plugin.query.QueryPlugin;
+import io.swagger.annotations.ApiModelProperty;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
-import com.maozi.base.AbstractBaseDtomain;
-import com.maozi.base.param.plugin.OrderParam;
-import com.maozi.base.plugin.QueryBaseType;
-import com.maozi.base.plugin.QueryPlugin;
-
-import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
 @Data

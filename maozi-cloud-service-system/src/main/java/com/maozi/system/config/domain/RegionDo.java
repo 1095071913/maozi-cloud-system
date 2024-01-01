@@ -3,8 +3,7 @@ package com.maozi.system.config.domain;
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.gitee.sunchenbin.mybatis.actable.annotation.Column;
 import com.gitee.sunchenbin.mybatis.actable.annotation.TableComment;
-import com.maozi.base.AbstractBaseDomain;
-
+import com.maozi.base.AbstractBaseNameDomain;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -16,7 +15,7 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder(toBuilder = true)
 @TableName("system_config_region")
 @TableComment("地区")
-public class RegionDo extends AbstractBaseDomain {
+public class RegionDo extends AbstractBaseNameDomain {
 	
 	@Column(value = "parent_id",comment = "父级ID",defaultValue = "1")
 	private Long parentId;

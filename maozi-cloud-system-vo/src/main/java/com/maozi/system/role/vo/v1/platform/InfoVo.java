@@ -1,14 +1,12 @@
 package com.maozi.system.role.vo.v1.platform;
 
-import java.util.List;
-
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.maozi.base.AbstractBaseVomain;
 import com.maozi.base.enums.Status;
-import com.maozi.base.plugin.QueryRelation;
-
+import com.maozi.base.plugin.mapping.QueryMapping;
 import io.swagger.annotations.ApiModelProperty;
+import java.util.List;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -33,7 +31,7 @@ public class InfoVo extends AbstractBaseVomain{
 	private Status status;
 	
 	@ApiModelProperty(value = "权限列表",dataType = "com.maozi.base.result.ListStringResult")
-	@QueryRelation(isService = true,serviceName = "rolePermissionServiceImpl",functionName = "getPermissionsByRole",relationField = "id")
+	@QueryMapping(isService = true,serviceName = "rolePermissionServiceImpl",functionName = "getPermissionsByRole",relationField = "id")
 	private List<Long> permissionIds;
 
 }

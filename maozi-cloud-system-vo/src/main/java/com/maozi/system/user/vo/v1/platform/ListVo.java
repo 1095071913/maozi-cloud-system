@@ -3,9 +3,8 @@ package com.maozi.system.user.vo.v1.platform;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.maozi.base.AbstractBaseVomain;
 import com.maozi.base.enums.Status;
-import com.maozi.base.plugin.QueryRelation;
+import com.maozi.base.plugin.mapping.QueryMapping;
 import com.maozi.base.result.DropDownResult;
-
 import io.swagger.annotations.ApiModelProperty;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -23,7 +22,7 @@ public class ListVo extends AbstractBaseVomain {
 	private String name;
 
 	@ApiModelProperty("客户端")
-	@QueryRelation(relationField = "clientId",isService = true,serviceName = "rpcClientServiceV1")
+	@QueryMapping(relationField = "clientId",isService = true,serviceName = "rpcClientServiceV1")
 	private DropDownResult client;
 	
 	@ApiModelProperty(value = "状态",dataType = "com.maozi.base.result.EnumResult")

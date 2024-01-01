@@ -17,16 +17,6 @@
 
 package com.maozi.system.permission.api.impl;
 
-import java.util.Collection;
-import java.util.List;
-import java.util.stream.Collectors;
-
-import javax.annotation.Resource;
-
-import org.springframework.security.core.context.SecurityContext;
-import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.stereotype.Service;
-
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.github.yulichang.toolkit.MPJWrappers;
 import com.github.yulichang.wrapper.MPJLambdaWrapper;
@@ -35,6 +25,12 @@ import com.maozi.system.permission.api.PermissionService;
 import com.maozi.system.permission.api.RolePermissionService;
 import com.maozi.system.permission.domain.RolePermissionDo;
 import com.maozi.system.permission.mapper.RolePermissionMapper;
+import java.util.Collection;
+import java.util.List;
+import java.util.function.Consumer;
+import java.util.stream.Collectors;
+import javax.annotation.Resource;
+import org.springframework.stereotype.Service;
 
 /**	
  * 
@@ -72,34 +68,30 @@ public class RolePermissionServiceImpl extends BaseServiceImpl<RolePermissionMap
 	public void updateBind(Long roleId, List<Long> bindPermissionIds, List<Long> unbindPermissionIds) {
 		
 		if(collectionIsNotEmpty(bindPermissionIds)) {
-			
-			SecurityContext securityContext = SecurityContextHolder.getContext();
-			
-			bindPermissionIds.parallelStream().forEach((permissionId)->{
-				
-				SecurityContextHolder.setContext(securityContext);
-				
+
+			Consumer<Long> consumer = wrapConsumer((permissionId)->{
+
 				RolePermissionDo domainSave = RolePermissionDo.builder().roleId(roleId).permissionId(permissionId).build();
-				
+
 				if(count(MPJWrappers.lambdaJoin(domainSave)) < 1 && permissionService.has(permissionId)) {
 					save(domainSave);
 				}
-				
-				clear();
-				
+
 			});
+			
+			bindPermissionIds.parallelStream().forEach(consumer);
 			
 		}
 		
 		if(collectionIsNotEmpty(unbindPermissionIds)) {
-			
-			unbindPermissionIds.parallelStream().forEach((permissionId)->{
+
+			Consumer<Long> consumer = wrapConsumer((permissionId)->{
 				
 				remove(MPJWrappers.lambdaJoin(RolePermissionDo.builder().roleId(roleId).permissionId(permissionId).build()));
 				
-				clear();
-				
 			});
+
+			unbindPermissionIds.parallelStream().forEach(consumer);
 			
 		}
 		

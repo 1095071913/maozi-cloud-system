@@ -9,6 +9,16 @@
 	</parent>
 	<artifactId>maozi-cloud-service-system</artifactId>
 
+	<properties>
+
+		<maven.test.skip>true</maven.test.skip>
+		<maven.install.skip>true</maven.install.skip>
+		<maven.deploy.skip>true</maven.deploy.skip>
+
+		<application-run>com.maozi.SystemApplication</application-run>
+
+	</properties>
+
 	<dependencies>
 		
 		<dependency>
@@ -39,8 +49,8 @@
 		
 		<dependency>
 			<groupId>com.maozi</groupId>
-			<artifactId>maozi-cloud-service-rpc-api-sso</artifactId>
-			<version>${maozi-cloud-service-rpc-api-sso.version}</version>
+			<artifactId>maozi-cloud-service-rpc-api-oauth</artifactId>
+			<version>${maozi-cloud-service-rpc-api-oauth.version}</version>
 		</dependency>
 
 	</dependencies>
@@ -52,7 +62,7 @@
 
 	<!-- boot打包 Begin -->
 	<build>
-		<finalName>${parent.artifactId}</finalName>
+		<finalName>${artifactId}</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>

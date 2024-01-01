@@ -2,7 +2,6 @@ package com.maozi.system.permission.vo.v1.platform;
 
 import com.maozi.base.AbstractBaseDtomain;
 import com.maozi.system.permission.enums.PermissionType;
-
 import io.swagger.annotations.ApiModelProperty;
 import lombok.AllArgsConstructor;
 import lombok.Data;

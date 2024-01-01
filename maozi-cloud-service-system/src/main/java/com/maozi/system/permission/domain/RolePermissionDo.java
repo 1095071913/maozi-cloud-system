@@ -19,7 +19,6 @@ import com.baomidou.mybatisplus.annotation.TableName;
 import com.gitee.sunchenbin.mybatis.actable.annotation.Column;
 import com.gitee.sunchenbin.mybatis.actable.annotation.TableComment;
 import com.maozi.base.AbstractBaseDomain;
-
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -46,7 +45,7 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder(toBuilder = true)
 @TableName("system_role_permission")
 @TableComment("角色权限关系")
-public class RolePermissionDo extends AbstractBaseDomain{
+public class RolePermissionDo extends AbstractBaseDomain {
 	
 	@Column(value = "role_id",comment = "角色ID")
 	private Long roleId;

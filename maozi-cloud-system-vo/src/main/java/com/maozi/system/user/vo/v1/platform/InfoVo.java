@@ -1,15 +1,13 @@
 package com.maozi.system.user.vo.v1.platform;
 
-import java.util.List;
-
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.maozi.base.AbstractBaseVomain;
 import com.maozi.base.enums.Status;
-import com.maozi.base.plugin.QueryRelation;
+import com.maozi.base.plugin.mapping.QueryMapping;
 import com.maozi.base.result.DropDownResult;
-
 import io.swagger.annotations.ApiModelProperty;
+import java.util.List;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -34,7 +32,7 @@ public class InfoVo extends AbstractBaseVomain {
 	private Long clientId;
 	
 	@ApiModelProperty("客户端")
-	@QueryRelation(isService = true,serviceName = "rpcClientServiceV1",relationField = "clientId")
+	@QueryMapping(isService = true,serviceName = "rpcClientServiceV1",relationField = "clientId")
 	private DropDownResult client;
 	
 	@ApiModelProperty("图标")
@@ -45,7 +43,7 @@ public class InfoVo extends AbstractBaseVomain {
 	private Status status;
 	
 	@ApiModelProperty(value = "权限列表",dataType = "com.maozi.base.result.ListStringResult")
-	@QueryRelation(isService = true,serviceName = "userRoleServiceImpl",functionName = "getRolesByUser",relationField = "id")
+	@QueryMapping(isService = true,serviceName = "userRoleServiceImpl",functionName = "getRolesByUser",relationField = "id")
 	private List<Long> roleIds;
 
 }

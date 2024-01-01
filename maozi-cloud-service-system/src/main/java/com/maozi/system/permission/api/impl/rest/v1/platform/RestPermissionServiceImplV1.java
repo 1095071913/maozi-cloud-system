@@ -1,7 +1,5 @@
 package com.maozi.system.permission.api.impl.rest.v1.platform;
 
-import java.util.List;
-
 import com.github.yulichang.toolkit.MPJWrappers;
 import com.github.yulichang.wrapper.MPJLambdaWrapper;
 import com.maozi.base.annotation.RestService;
@@ -13,6 +11,7 @@ import com.maozi.system.permission.vo.v1.platform.DropDownResult;
 import com.maozi.system.permission.vo.v1.platform.InfoVo;
 import com.maozi.system.permission.vo.v1.platform.ListVo;
 import com.maozi.user.permission.dto.v1.platform.SaveUpdateParam;
+import java.util.List;
 
 @RestService
 public class RestPermissionServiceImplV1 extends PermissionServiceImpl implements RestPermissionServiceV1 {

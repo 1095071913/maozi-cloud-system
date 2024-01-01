@@ -17,9 +17,8 @@
 
 package com.maozi.system.user.api.rpc.v1;
 
-import java.util.List;
-
 import com.maozi.common.result.AbstractBaseResult;
+import java.util.List;
 
 /**
  * 

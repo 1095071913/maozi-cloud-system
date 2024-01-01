@@ -18,8 +18,7 @@ package com.maozi.system.permission.domain;
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.gitee.sunchenbin.mybatis.actable.annotation.Column;
 import com.gitee.sunchenbin.mybatis.actable.annotation.TableComment;
-import com.maozi.base.AbstractBaseDomain;
-
+import com.maozi.base.AbstractBaseNameDomain;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -46,7 +45,7 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder(toBuilder = true)
 @TableName(value = "system_role",autoResultMap = true)
 @TableComment("角色")
-public class RoleDo extends AbstractBaseDomain{
+public class RoleDo extends AbstractBaseNameDomain {
 	
 	@Column(value = "description",comment = "描述")
 	private String description;

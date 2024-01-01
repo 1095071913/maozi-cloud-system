@@ -3,7 +3,6 @@ package com.maozi.system.permission.vo.v1.platform;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.maozi.base.AbstractBaseVomain;
 import com.maozi.system.permission.enums.PermissionType;
-
 import io.swagger.annotations.ApiModelProperty;
 import lombok.AllArgsConstructor;
 import lombok.Data;

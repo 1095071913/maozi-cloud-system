@@ -2,7 +2,6 @@ package com.maozi.system.role.vo.v1.platform;
 
 import com.maozi.base.AbstractBaseVomain;
 import com.maozi.base.enums.Status;
-
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 

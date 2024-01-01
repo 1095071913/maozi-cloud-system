@@ -19,8 +19,7 @@ import com.baomidou.mybatisplus.annotation.TableName;
 import com.gitee.sunchenbin.mybatis.actable.annotation.Column;
 import com.gitee.sunchenbin.mybatis.actable.annotation.Index;
 import com.gitee.sunchenbin.mybatis.actable.annotation.TableComment;
-import com.maozi.base.AbstractBaseDomain;
-
+import com.maozi.base.AbstractBaseNameDomain;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -47,7 +46,7 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder(toBuilder = true)
 @TableName("system_user")
 @TableComment("用户")
-public class UserDo extends AbstractBaseDomain{
+public class UserDo extends AbstractBaseNameDomain {
 	
 	@Index
 	@Column(value = "username",comment = "账号")

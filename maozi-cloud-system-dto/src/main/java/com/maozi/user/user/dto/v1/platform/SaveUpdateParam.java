@@ -17,14 +17,11 @@
 
 package com.maozi.user.user.dto.v1.platform;
 
-import java.util.List;
-
-import javax.validation.constraints.NotNull;
-
 import com.maozi.base.AbstractBaseDtomain;
 import com.maozi.base.enums.Status;
-
 import io.swagger.annotations.ApiModelProperty;
+import java.util.List;
+import javax.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

@@ -17,28 +17,25 @@
 
 package com.maozi.system.user.api.rest.v1.platform;
 
-import javax.validation.Valid;
-
-import org.springframework.security.access.prepost.PreAuthorize;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-
 import com.maozi.base.param.PageParam;
 import com.maozi.base.result.PageResult;
 import com.maozi.common.result.AbstractBaseResult;
-import com.maozi.sso.oauth.dto.platform.dto.OauthToken;
+import com.maozi.oauth.token.dto.platform.dto.OauthToken;
 import com.maozi.system.user.vo.v1.platform.IndividualInfoVo;
 import com.maozi.system.user.vo.v1.platform.InfoVo;
 import com.maozi.system.user.vo.v1.platform.ListVo;
 import com.maozi.user.user.dto.v1.platform.AccountParam;
 import com.maozi.user.user.dto.v1.platform.ListParam;
 import com.maozi.user.user.dto.v1.platform.SaveUpdateParam;
-
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import javax.validation.Valid;
+import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 /**
  * 

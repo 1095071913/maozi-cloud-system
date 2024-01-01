@@ -15,20 +15,18 @@
  * 
  */
 
-package com.maozi.system.user.api;
+package com.maozi.system.test.mapper;
 
-import com.github.yulichang.base.MPJBaseService;
-import com.maozi.oauth.token.dto.platform.param.ClientUserParam;
-import com.maozi.system.user.domain.UserDo;
-import java.util.List;
+import com.maozi.base.api.IBaseMapper;
+import com.maozi.system.test.domain.Test1Do;
 
 /**
  * 
- * 	功能说明：User私有函数
+ * 	功能说明：用户Mapper
  * 
  *	功能作者：彭晋龙 ( 联系方式QQ/微信：1095071913 )
  *
- *	创建日期：2019-09-02 : 1:36:00
+ *	创建日期：2019-08-03 ：1:32:00
  *
  *	版权归属：蓝河团队
  *
@@ -36,12 +34,5 @@ import java.util.List;
  *
  */
 
-public interface UserService extends MPJBaseService<UserDo> {
-	
-	<D> D getByUsername(String username,Class<D> clazz,String ... colums);
-	
-	ClientUserParam getClientUser(Long id);
-	
-	List<ClientUserParam> getClientUsers(List<Long> ids);
-	
-}
+
+public interface Test1Mapper extends IBaseMapper<Test1Do>{}

@@ -1,9 +1,7 @@
 package com.maozi.user.user.dto.v1.platform;
 
-import javax.validation.constraints.NotNull;
-
 import com.maozi.base.AbstractBaseDtomain;
-
+import javax.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

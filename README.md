@@ -184,11 +184,11 @@ db为固定名称
 
 <br/>
 
-如：https://gitee.com/xmaozi/maozi-cloud-sso  定义为：
+如：https://gitee.com/xmaozi/maozi-cloud-oauth  定义为：
 
-maozi-cloud-sso-test-db 
+maozi-cloud-oauth-test-db 
 
-maozi-cloud-sso-production-db
+maozi-cloud-oauth-production-db
 
 <br/>
 
@@ -200,11 +200,11 @@ maozi-cloud-sso-production-db
 
 # 项目编译依赖
 
-**此项目依赖  https://gitee.com/xmaozi/maozi-cloud-sso**
+**此项目依赖  https://gitee.com/xmaozi/maozi-cloud-oauth**
 
 **所以先将以下项目编译了**
 
-**maozi-cloud-sso/maozi-cloud-sso-system**
+**maozi-cloud-oauth/maozi-cloud-oauth-system**
 
 <br/>
 
@@ -269,14 +269,14 @@ application-project-whitelist: /user/pc/v1/login
 <br/>
 
 ```
-[ 2023-03-03 00:11:21 ]  [ level：INFO ]  [ TID: N/A ]  [ maozi-cloud-service：maozi-cloud-system ]  [ environment：localhost ]  [ uptime：72469 ms ]  [ config：cloud-default.yml,cloud-nacos.yml,cloud-dubbo.yml,boot-admin.yml,api-whitelist.yml,cloud-security.yml,boot-redis.yml,boot-swagger.yml,boot-arthas.yml,cloud-sentinel.yml,boot-datasource.yml,boot-mybatisplus.yml ]  [ nacosAddr：127.0.0.1:8848 net ]  [ subscribe：null ]
+[ 2023-03-03 00:11:21 ]  [ level：INFO ]  [ TID: N/A ]  [ maozi-cloud-service：maozi-cloud-system ]  [ environment：localhost ]  [ uptime：72469 ms ]  [ config：cloud-default.yml,cloud-nacos.yml,cloud-dubbo.yml,boot-admin.yml,api-whitelist.yml,cloud-oauth.yml,boot-redis.yml,boot-swagger.yml,boot-arthas.yml,cloud-sentinel.yml,boot-datasource.yml,boot-mybatisplus.yml ]  [ nacosAddr：127.0.0.1:8848 net ]  [ subscribe：null ]
 ```
 
 <br/>
 
 启动成功 ，访问 **localhost:2000/doc.html**
 
-若已启动 https://gitee.com/xmaozi/maozi-cloud-sso 即可测试接口
+若已启动 https://gitee.com/xmaozi/maozi-cloud-oauth 即可测试接口
 
 【后台】【V1】用户模块/用户登录
 

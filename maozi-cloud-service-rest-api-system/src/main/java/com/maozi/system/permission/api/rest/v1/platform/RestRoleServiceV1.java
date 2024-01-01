@@ -1,24 +1,20 @@
 package com.maozi.system.permission.api.rest.v1.platform;
 
+import com.maozi.base.result.DropDownResult;
+import com.maozi.common.result.AbstractBaseResult;
+import com.maozi.system.role.vo.v1.platform.InfoVo;
+import com.maozi.system.role.vo.v1.platform.ListVo;
+import com.maozi.user.role.dto.v1.platform.SaveUpdateParam;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import java.util.List;
-
 import javax.validation.Valid;
-
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-
-import com.maozi.base.result.DropDownResult;
-import com.maozi.common.result.AbstractBaseResult;
-import com.maozi.system.role.vo.v1.platform.InfoVo;
-import com.maozi.system.role.vo.v1.platform.ListVo;
-import com.maozi.user.role.dto.v1.platform.SaveUpdateParam;
-
-import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiOperation;
 
 @Api(tags = "【平台】【V1】角色模块")
 @RequestMapping("/role/platform/v1")

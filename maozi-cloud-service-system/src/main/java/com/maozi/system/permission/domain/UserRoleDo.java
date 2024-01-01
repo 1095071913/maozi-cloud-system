@@ -20,7 +20,6 @@ import com.gitee.sunchenbin.mybatis.actable.annotation.Column;
 import com.gitee.sunchenbin.mybatis.actable.annotation.Index;
 import com.gitee.sunchenbin.mybatis.actable.annotation.TableComment;
 import com.maozi.base.AbstractBaseDomain;
-
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -47,7 +46,7 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder(toBuilder = true)
 @TableName("system_user_role") 
 @TableComment("用户角色关系")
-public class UserRoleDo extends AbstractBaseDomain{
+public class UserRoleDo extends AbstractBaseDomain {
 	
 	@Index
 	@Column(value = "role_id",comment = "角色ID")

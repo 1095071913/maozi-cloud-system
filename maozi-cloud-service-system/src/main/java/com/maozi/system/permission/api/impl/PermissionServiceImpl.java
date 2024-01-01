@@ -17,14 +17,6 @@
 
 package com.maozi.system.permission.api.impl;
 
-import java.util.Collection;
-import java.util.List;
-import java.util.stream.Collectors;
-
-import javax.annotation.Resource;
-
-import org.springframework.stereotype.Service;
-
 import com.github.yulichang.toolkit.MPJWrappers;
 import com.github.yulichang.wrapper.MPJLambdaWrapper;
 import com.maozi.base.api.impl.BaseServiceImpl;
@@ -32,6 +24,11 @@ import com.maozi.system.permission.api.PermissionService;
 import com.maozi.system.permission.api.RolePermissionService;
 import com.maozi.system.permission.domain.PermissionDo;
 import com.maozi.system.permission.mapper.PermissionMapper;
+import java.util.Collection;
+import java.util.List;
+import java.util.stream.Collectors;
+import javax.annotation.Resource;
+import org.springframework.stereotype.Service;
 
 /**	
  * 
