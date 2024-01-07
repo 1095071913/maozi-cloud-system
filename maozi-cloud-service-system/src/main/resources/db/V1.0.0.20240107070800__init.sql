@@ -1,7 +1,33 @@
-/**
- * 【系统】【权限】
- */
-insert  into `system_permission`(`parent_id`,`icon`,`mark`,`level`,`route`,`service_uri`,`type`,`sort`,`id`,`name`,`create_username`,`update_username`,`deleted`,`status`,`version`,`create_time`,`update_time`) values 
+-- 【系统】【权限】
+
+
+-- DDL
+DROP TABLE IF EXISTS `system_permission`;
+CREATE TABLE `system_permission`  (
+  `parent_id` bigint NULL DEFAULT 0 COMMENT '父ID',
+  `icon` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '图标',
+  `mark` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '标识',
+  `level` int NULL DEFAULT NULL COMMENT '深度',
+  `route` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '路由',
+  `service_uri` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '服务地址',
+  `type` bigint NULL DEFAULT NULL COMMENT '类型',
+  `sort` int NULL DEFAULT 0 COMMENT '排序',
+  `name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '名称',
+  `id` bigint NOT NULL COMMENT '主键',
+  `create_username` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '创建人',
+  `update_username` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '更新人',
+  `deleted` bigint NULL DEFAULT 0 COMMENT '逻辑删除',
+  `status` bigint NULL DEFAULT 1 COMMENT '状态',
+  `version` int NULL DEFAULT 0 COMMENT '版本号',
+  `create_time` bigint NULL DEFAULT NULL COMMENT '创建时间',
+  `update_time` bigint NULL DEFAULT NULL COMMENT '更新时间',
+  PRIMARY KEY (`id`) USING BTREE,
+  INDEX `actable_idx_name`(`name` ASC) USING BTREE
+) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT = '权限' ROW_FORMAT = Dynamic;
+
+
+-- DML
+insert  into `system_permission`(`parent_id`,`icon`,`mark`,`level`,`route`,`service_uri`,`type`,`sort`,`id`,`name`,`create_username`,`update_username`,`deleted`,`status`,`version`,`create_time`,`update_time`) values
 (0,'http://dummyimage.com/100x100','system',0,'/system','/system',0,-99,1664610266102480897,'系统','admin','admin',0,1,0,1685708989069,1685709094772),
 (1664610266102480897,'http://dummyimage.com/100x100','system:user:list',1,'/system/user','/user/platform/v1/list',1,99,1664612799378210817,'账号管理','admin','admin',0,1,0,1685709593045,1685709593045),
 (1664610266102480897,'http://dummyimage.com/100x100','system:role:list',1,'/system/role','/role/platform/v1/list',1,98,1664612896275021826,'角色管理','admin','admin',0,1,0,1685709616146,1685709616146),
@@ -28,20 +54,58 @@ insert  into `system_permission`(`parent_id`,`icon`,`mark`,`level`,`route`,`serv
 
 
 
-/**
- * 【系统】【角色】
- */
-insert  into `system_role`(`description`,`id`,`name`,`create_username`,`update_username`,`deleted`,`status`,`version`,`create_time`,`update_time`) values 
+-- 【系统】【角色】
+
+
+-- DDL
+DROP TABLE IF EXISTS `system_role`;
+CREATE TABLE `system_role`  (
+  `description` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '描述',
+  `name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '名称',
+  `id` bigint NOT NULL COMMENT '主键',
+  `create_username` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '创建人',
+  `update_username` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '更新人',
+  `deleted` bigint NULL DEFAULT 0 COMMENT '逻辑删除',
+  `status` bigint NULL DEFAULT 1 COMMENT '状态',
+  `version` int NULL DEFAULT 0 COMMENT '版本号',
+  `create_time` bigint NULL DEFAULT NULL COMMENT '创建时间',
+  `update_time` bigint NULL DEFAULT NULL COMMENT '更新时间',
+  PRIMARY KEY (`id`) USING BTREE,
+  INDEX `actable_idx_name`(`name` ASC) USING BTREE
+) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT = '角色' ROW_FORMAT = Dynamic;
+
+
+-- DML
+insert  into `system_role`(`description`,`id`,`name`,`create_username`,`update_username`,`deleted`,`status`,`version`,`create_time`,`update_time`) values
 ('系统最高权限',1664608155495153666,'超级管理员','admin','admin',0,1,0,1685708485854,1685770905092);
 
 
 
 
 
-/**
- * 【系统】【角色权限关系】
- */
-insert  into `system_role_permission`(`role_id`,`permission_id`,`id`,`name`,`create_username`,`update_username`,`deleted`,`status`,`version`,`create_time`,`update_time`) values 
+-- 【系统】【角色权限关系】
+
+
+-- DDL
+DROP TABLE IF EXISTS `system_role_permission`;
+CREATE TABLE `system_role_permission`  (
+  `role_id` bigint NULL DEFAULT NULL COMMENT '角色ID',
+  `permission_id` bigint NULL DEFAULT NULL COMMENT '权限ID',
+  `id` bigint NOT NULL COMMENT '主键',
+  `name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '名称',
+  `create_username` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '创建人',
+  `update_username` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '更新人',
+  `deleted` bigint NULL DEFAULT 0 COMMENT '逻辑删除',
+  `status` bigint NULL DEFAULT 1 COMMENT '状态',
+  `version` int NULL DEFAULT 0 COMMENT '版本号',
+  `create_time` bigint NULL DEFAULT NULL COMMENT '创建时间',
+  `update_time` bigint NULL DEFAULT NULL COMMENT '更新时间',
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT = '角色权限关系' ROW_FORMAT = Dynamic;
+
+
+-- DML
+insert  into `system_role_permission`(`role_id`,`permission_id`,`id`,`name`,`create_username`,`update_username`,`deleted`,`status`,`version`,`create_time`,`update_time`) values
 (1664608155495153666,1664846839293267969,1664867977616453634,NULL,'admin','admin',0,1,0,1685770432280,1685770432280),
 (1664608155495153666,1664712564807946242,1664867977616453635,NULL,'visitor','visitor',0,1,0,1685770432277,1685770432277),
 (1664608155495153666,1664612896275021826,1664867977616453636,NULL,'visitor','visitor',0,1,0,1685770432277,1685770432278),
@@ -68,29 +132,102 @@ insert  into `system_role_permission`(`role_id`,`permission_id`,`id`,`name`,`cre
 
 
 
-/**
- * 【系统】【用户】
- */
-insert  into `system_user`(`client_id`,`icon`,`username`,`password`,`id`,`name`,`create_username`,`update_username`,`deleted`,`status`,`version`,`create_time`,`update_time`) values 
+-- 【系统】【用户】
+
+
+-- DDL
+DROP TABLE IF EXISTS `system_user`;
+CREATE TABLE `system_user`  (
+  `username` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '账号',
+  `password` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '密码',
+  `icon` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '图标',
+  `client_id` bigint NULL DEFAULT NULL COMMENT '客户端ID',
+  `name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '名称',
+  `id` bigint NOT NULL COMMENT '主键',
+  `create_username` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '创建人',
+  `update_username` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '更新人',
+  `deleted` bigint NULL DEFAULT 0 COMMENT '逻辑删除',
+  `status` bigint NULL DEFAULT 1 COMMENT '状态',
+  `version` int NULL DEFAULT 0 COMMENT '版本号',
+  `create_time` bigint NULL DEFAULT NULL COMMENT '创建时间',
+  `update_time` bigint NULL DEFAULT NULL COMMENT '更新时间',
+  PRIMARY KEY (`id`) USING BTREE,
+  INDEX `actable_idx_username`(`username` ASC) USING BTREE,
+  INDEX `actable_idx_name`(`name` ASC) USING BTREE
+) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT = '用户' ROW_FORMAT = Dynamic;
+
+
+-- DML
+insert  into `system_user`(`client_id`,`icon`,`username`,`password`,`id`,`name`,`create_username`,`update_username`,`deleted`,`status`,`version`,`create_time`,`update_time`) values
 (1666202288290533378,'http://dummyimage.com/100x100','admin','{MD5}{3m2+RR3Xy7TD50VKF3i6h3XqjtvpyQVnt5ZePMRQzbI=}94ae0fbb55e1fee7ba05746d449187d8',0,'maozi','admin','admin',0,1,0,1685784064152,1685784064152);
 
 
 
 
 
-/**
- * 【系统】【用户角色关系】
- */
-insert  into `system_user_role`(`role_id`,`user_id`,`id`,`name`,`create_username`,`update_username`,`deleted`,`status`,`version`,`create_time`,`update_time`) values 
+-- 【系统】【用户角色关系】
+
+
+-- DDL
+DROP TABLE IF EXISTS `system_user_role`;
+CREATE TABLE `system_user_role`  (
+  `role_id` bigint NULL DEFAULT NULL COMMENT '角色ID',
+  `user_id` bigint NULL DEFAULT NULL COMMENT '用户ID',
+  `id` bigint NOT NULL COMMENT '主键',
+  `name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '名称',
+  `create_username` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '创建人',
+  `update_username` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '更新人',
+  `deleted` bigint NULL DEFAULT 0 COMMENT '逻辑删除',
+  `status` bigint NULL DEFAULT 1 COMMENT '状态',
+  `version` int NULL DEFAULT 0 COMMENT '版本号',
+  `create_time` bigint NULL DEFAULT NULL COMMENT '创建时间',
+  `update_time` bigint NULL DEFAULT NULL COMMENT '更新时间',
+  PRIMARY KEY (`id`) USING BTREE,
+  INDEX `actable_idx_role_id`(`role_id` ASC) USING BTREE,
+  INDEX `actable_idx_user_id`(`user_id` ASC) USING BTREE
+) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT = '用户角色关系' ROW_FORMAT = Dynamic;
+
+
+-- DML
+insert  into `system_user_role`(`role_id`,`user_id`,`id`,`name`,`create_username`,`update_username`,`deleted`,`status`,`version`,`create_time`,`update_time`) values
 (1664608155495153666,0,1664878100636295169,NULL,'admin','admin',0,1,0,1685772845790,1685772845790);
 
 
 
 
-/**
- * 【系统】【配置】【地区】
- */
-insert  into `system_config_region`(`id`,`name`,`parent_id`,`sname`,`level`,`city_code`,`mail_code`,`mername`,`Lng`,`Lat`,`pinyin`) values 
+
+
+-- 【系统】【配置】【地区】
+
+
+-- DML
+ DROP TABLE IF EXISTS `system_config_region`;
+ CREATE TABLE `system_config_region`  (
+   `parent_id` bigint NULL DEFAULT 1 COMMENT '父级ID',
+   `sname` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '简称',
+   `level` int NULL DEFAULT NULL COMMENT '级别',
+   `city_code` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '编码',
+   `mail_code` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '邮政编码',
+   `mername` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '组合名称',
+   `lng` float(10, 0) NULL DEFAULT NULL COMMENT '经度',
+   `lat` float(10, 0) NULL DEFAULT NULL COMMENT '维度',
+   `pinyin` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '拼音',
+   `name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '名称',
+   `id` bigint NOT NULL COMMENT '主键',
+   `create_username` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '创建人',
+   `update_username` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '更新人',
+   `deleted` bigint NULL DEFAULT 0 COMMENT '逻辑删除',
+   `status` bigint NULL DEFAULT 1 COMMENT '状态',
+   `version` int NULL DEFAULT 0 COMMENT '版本号',
+   `create_time` bigint NULL DEFAULT NULL COMMENT '创建时间',
+   `update_time` bigint NULL DEFAULT NULL COMMENT '更新时间',
+   PRIMARY KEY (`id`) USING BTREE,
+   INDEX `actable_idx_name`(`name` ASC) USING BTREE
+ ) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT = '地区' ROW_FORMAT = Dynamic;
+
+
+-- DML
+insert  into `system_config_region`(`id`,`name`,`parent_id`,`sname`,`level`,`city_code`,`mail_code`,`mername`,`Lng`,`Lat`,`pinyin`) values
 (100000,'中国',0,'中国',0,'','','中国',116.368,39.9151,'China'),
 (110000,'北京',100000,'北京',1,'','','中国,北京',116.405,39.905,'Beijing'),
 (110100,'北京市',110000,'北京',2,'010','100000','中国,北京,北京市',116.405,39.905,'Beijing'),

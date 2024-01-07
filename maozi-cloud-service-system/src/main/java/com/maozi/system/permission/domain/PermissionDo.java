@@ -55,7 +55,7 @@ public class PermissionDo extends AbstractBaseNameDomain {
 	@Column(value = "icon",comment = "图标")
 	private String icon;
 	
-	@Column(value = "mark",comment = "标识")
+	@Column(comment = "标识")
 	private String mark;
 	
 	@Column(value = "level",comment = "深度")
