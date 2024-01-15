@@ -1,4 +1,4 @@
-package com.maozi.user.role.dto.v1.platform;
+package com.maozi.system.role.dto.v1.platform;
 
 import com.maozi.base.AbstractBaseDtomain;
 import com.maozi.base.enums.Status;

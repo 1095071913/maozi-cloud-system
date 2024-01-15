@@ -32,9 +32,9 @@ import com.maozi.system.user.domain.UserDo;
 import com.maozi.system.user.vo.v1.platform.IndividualInfoVo;
 import com.maozi.system.user.vo.v1.platform.InfoVo;
 import com.maozi.system.user.vo.v1.platform.ListVo;
-import com.maozi.user.user.dto.v1.platform.AccountParam;
-import com.maozi.user.user.dto.v1.platform.ListParam;
-import com.maozi.user.user.dto.v1.platform.SaveUpdateParam;
+import com.maozi.system.user.dto.v1.platform.AccountParam;
+import com.maozi.system.user.dto.v1.platform.ListParam;
+import com.maozi.system.user.dto.v1.platform.SaveUpdateParam;
 
 /**
  * 

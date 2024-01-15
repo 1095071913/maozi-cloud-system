@@ -4,7 +4,7 @@ import com.maozi.base.result.DropDownResult;
 import com.maozi.common.result.AbstractBaseResult;
 import com.maozi.system.role.vo.v1.platform.InfoVo;
 import com.maozi.system.role.vo.v1.platform.ListVo;
-import com.maozi.user.role.dto.v1.platform.SaveUpdateParam;
+import com.maozi.system.role.dto.v1.platform.SaveUpdateParam;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import java.util.List;

@@ -9,7 +9,7 @@ import com.maozi.system.permission.api.rest.v1.platform.RestRoleServiceV1;
 import com.maozi.system.permission.domain.RoleDo;
 import com.maozi.system.role.vo.v1.platform.InfoVo;
 import com.maozi.system.role.vo.v1.platform.ListVo;
-import com.maozi.user.role.dto.v1.platform.SaveUpdateParam;
+import com.maozi.system.role.dto.v1.platform.SaveUpdateParam;
 import java.util.List;
 
 @RestService

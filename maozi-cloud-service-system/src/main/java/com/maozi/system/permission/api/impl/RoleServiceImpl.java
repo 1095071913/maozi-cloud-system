@@ -9,7 +9,7 @@ import com.maozi.system.permission.api.UserRoleService;
 import com.maozi.system.permission.domain.RoleDo;
 import com.maozi.system.permission.mapper.RoleMapper;
 import com.maozi.system.user.api.UserService;
-import com.maozi.user.role.dto.v1.platform.SaveUpdateParam;
+import com.maozi.system.role.dto.v1.platform.SaveUpdateParam;
 import javax.annotation.Resource;
 import org.apache.dubbo.config.annotation.DubboReference;
 import org.springframework.stereotype.Service;

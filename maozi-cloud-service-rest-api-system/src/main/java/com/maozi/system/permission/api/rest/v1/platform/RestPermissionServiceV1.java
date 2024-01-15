@@ -4,7 +4,7 @@ import com.maozi.common.result.AbstractBaseResult;
 import com.maozi.system.permission.vo.v1.platform.DropDownResult;
 import com.maozi.system.permission.vo.v1.platform.InfoVo;
 import com.maozi.system.permission.vo.v1.platform.ListVo;
-import com.maozi.user.permission.dto.v1.platform.SaveUpdateParam;
+import com.maozi.system.permission.dto.v1.platform.SaveUpdateParam;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import java.util.List;

@@ -8,10 +8,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Api(tags = "【全局】【V1】系统模块")
-@RequestMapping("/config/global/system")
-public interface RestSystemService {
+@RequestMapping("/config/global/v1")
+public interface RestSystemServiceV1 {
 	
-	@GetMapping("/get")
+	@GetMapping("/system/get")
 	@ApiOperation(value = "详情")
 	AbstractBaseResult<SystemPropertiesVo> get();
 

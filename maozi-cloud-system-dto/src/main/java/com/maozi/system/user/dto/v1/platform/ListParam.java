@@ -1,4 +1,4 @@
-package com.maozi.user.user.dto.v1.platform;
+package com.maozi.system.user.dto.v1.platform;
 
 import com.maozi.base.AbstractBaseDtomain;
 import com.maozi.base.param.plugin.OrderParam;

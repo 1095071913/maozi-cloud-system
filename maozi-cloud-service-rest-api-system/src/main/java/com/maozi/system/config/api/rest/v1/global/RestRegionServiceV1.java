@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/config/global/v1")
 public interface RestRegionServiceV1 {
 
-	@GetMapping("/{parentId}/region")
+	@GetMapping("/region/{parentId}/list")
 	@ApiOperation(value = "列表")
 	AbstractBaseResult<List<DropDownResult>> list(@PathVariable("parentId") Long parentId);
 	

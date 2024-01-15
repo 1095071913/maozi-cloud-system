@@ -10,7 +10,7 @@ import com.maozi.system.permission.domain.PermissionDo;
 import com.maozi.system.permission.vo.v1.platform.DropDownResult;
 import com.maozi.system.permission.vo.v1.platform.InfoVo;
 import com.maozi.system.permission.vo.v1.platform.ListVo;
-import com.maozi.user.permission.dto.v1.platform.SaveUpdateParam;
+import com.maozi.system.permission.dto.v1.platform.SaveUpdateParam;
 import java.util.List;
 
 @RestService
