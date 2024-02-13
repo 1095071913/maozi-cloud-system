@@ -7,21 +7,21 @@ import com.maozi.oauth.token.dto.platform.param.ClientUserParam;
 import com.maozi.system.permission.api.impl.RoleServiceImpl;
 import com.maozi.system.permission.api.rest.v1.platform.RestRoleServiceV1;
 import com.maozi.system.permission.domain.RoleDo;
-import com.maozi.system.role.vo.v1.platform.InfoVo;
-import com.maozi.system.role.vo.v1.platform.ListVo;
-import com.maozi.system.role.dto.v1.platform.SaveUpdateParam;
+import com.maozi.system.role.dto.v1.platform.RoleSaveUpdateParam;
+import com.maozi.system.role.vo.v1.platform.RoleInfoVo;
+import com.maozi.system.role.vo.v1.platform.RoleListVo;
 import java.util.List;
 
 @RestService
 public class RestRoleServiceImplV1 extends RoleServiceImpl implements RestRoleServiceV1 {
 
 	@Override
-	public AbstractBaseResult<List<ListVo>> restList() {
-		return success(list(ListVo::new, RoleDo::getId,RoleDo::getName));
+	public AbstractBaseResult<List<RoleListVo>> restList() {
+		return success(list(RoleListVo::new, RoleDo::getId,RoleDo::getName));
 	}
 
 	@Override
-	public AbstractBaseResult<Long> restSave(SaveUpdateParam param) {
+	public AbstractBaseResult<Long> restSave(RoleSaveUpdateParam param) {
 		return success(restSaveUpdate(null,param));
 	}
 	
@@ -35,8 +35,8 @@ public class RestRoleServiceImplV1 extends RoleServiceImpl implements RestRoleSe
 	public class RestRoleServiceCurrentImplV1 extends RoleServiceImpl implements RestRoleServiceCurrentV1 {
 
 		@Override
-		public AbstractBaseResult<InfoVo> restGet(Long id) {
-			return success(getByIdThrowErrorRelation(id, InfoVo.class));
+		public AbstractBaseResult<RoleInfoVo> restGet(Long id) {
+			return success(getByIdThrowErrorRelation(id, RoleInfoVo.class));
 		}
 
 		@Override
@@ -45,7 +45,7 @@ public class RestRoleServiceImplV1 extends RoleServiceImpl implements RestRoleSe
 		}
 		
 		@Override
-		public AbstractBaseResult<Void> restUpdate(Long id, SaveUpdateParam param) {
+		public AbstractBaseResult<Void> restUpdate(Long id, RoleSaveUpdateParam param) {
 			
 			restSaveUpdate(id, param);
 			

@@ -22,6 +22,7 @@ import com.maozi.base.enums.Status;
 import com.maozi.base.param.PageParam;
 import com.maozi.base.result.PageResult;
 import com.maozi.common.result.AbstractBaseResult;
+import com.maozi.lock.annotation.Lock;
 import com.maozi.oauth.token.dto.platform.dto.OauthToken;
 import com.maozi.oauth.token.dto.platform.param.ClientParam;
 import com.maozi.oauth.token.dto.platform.param.ClientUserParam;
@@ -29,32 +30,19 @@ import com.maozi.oauth.token.dto.platform.param.TokenInfoParam;
 import com.maozi.system.user.api.impl.UserServiceImpl;
 import com.maozi.system.user.api.rest.v1.platform.RestUserServiceV1;
 import com.maozi.system.user.domain.UserDo;
-import com.maozi.system.user.vo.v1.platform.IndividualInfoVo;
-import com.maozi.system.user.vo.v1.platform.InfoVo;
-import com.maozi.system.user.vo.v1.platform.ListVo;
-import com.maozi.system.user.dto.v1.platform.AccountParam;
-import com.maozi.system.user.dto.v1.platform.ListParam;
-import com.maozi.system.user.dto.v1.platform.SaveUpdateParam;
-
-/**
- * 
- * 功能说明：用户Rest API实现
- * 
- * 功能作者：彭晋龙 ( 联系方式QQ/微信：1095071913 )
- *
- * 创建日期：2019-10-03 ：23:08:00
- *
- * 版权归属：蓝河团队
- *
- * 协议说明：Apache2.0（ 文件顶端 ）
- *
- */
+import com.maozi.system.user.dto.v1.platform.UserAccountParam;
+import com.maozi.system.user.dto.v1.platform.UserListParam;
+import com.maozi.system.user.dto.v1.platform.UserSaveUpdateParam;
+import com.maozi.system.user.vo.v1.platform.UserIndividualInfoVo;
+import com.maozi.system.user.vo.v1.platform.UserInfoVo;
+import com.maozi.system.user.vo.v1.platform.UserListVo;
 
 @RestService
 public class RestUserServiceImplV1 extends UserServiceImpl implements RestUserServiceV1 {
 
 	@Override
-	public AbstractBaseResult<OauthToken> restGetToken(AccountParam param) throws Exception {
+	@Lock
+	public AbstractBaseResult<OauthToken> restGetToken(UserAccountParam param) throws Exception {
 		
 		TokenInfoParam tokenParam = TokenInfoParam.builder().clientId(clientId).clientSecret(clientSecret).username(param.getUsername()).password(param.getPassword()).build();
 	    
@@ -63,12 +51,12 @@ public class RestUserServiceImplV1 extends UserServiceImpl implements RestUserSe
 	}
 
 	@Override
-	public AbstractBaseResult<PageResult<ListVo>> restList(PageParam<ListParam> pageParam) {
-		return success(listRelation(pageParam,ListVo::new));
+	public AbstractBaseResult<PageResult<UserListVo>> restList(PageParam<UserListParam> pageParam) {
+		return success(listRelation(pageParam, UserListVo::new));
 	}
 	
 	@Override
-	public AbstractBaseResult<Long> restSave(SaveUpdateParam param) {
+	public AbstractBaseResult<Long> restSave(UserSaveUpdateParam param) {
 		return success(restSaveUpdate(null,param));
 	}
 
@@ -87,12 +75,12 @@ public class RestUserServiceImplV1 extends UserServiceImpl implements RestUserSe
 		}
 		
 		@Override
-		public AbstractBaseResult<InfoVo> restGet(Long id) {
-			return success(getByIdThrowErrorRelation(id,InfoVo.class));
+		public AbstractBaseResult<UserInfoVo> restGet(Long id) {
+			return success(getByIdThrowErrorRelation(id, UserInfoVo.class));
 		}
 		
 		@Override
-		public AbstractBaseResult<Void> restUpdate(Long id,SaveUpdateParam param) {
+		public AbstractBaseResult<Void> restUpdate(Long id, UserSaveUpdateParam param) {
 			
 			restSaveUpdate(id,param);
 			
@@ -125,8 +113,9 @@ public class RestUserServiceImplV1 extends UserServiceImpl implements RestUserSe
 	public class RestUserServiceIndividualImplV1 extends UserServiceImpl implements RestUserServiceIndividualV1{
 		
 		@Override
-		public AbstractBaseResult<IndividualInfoVo> restIndividualGet() {
-			return success(getByUsername(getCurrentUserName(),IndividualInfoVo.class,getColumns(UserDo::getName,UserDo::getIcon)));
+		public AbstractBaseResult<UserIndividualInfoVo> restIndividualGet() {
+			return success(getByUsername(getCurrentUserName(),
+				UserIndividualInfoVo.class,getColumns(UserDo::getName,UserDo::getIcon)));
 		}
 
 		@Override

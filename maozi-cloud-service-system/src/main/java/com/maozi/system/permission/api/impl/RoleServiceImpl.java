@@ -8,8 +8,8 @@ import com.maozi.system.permission.api.RoleService;
 import com.maozi.system.permission.api.UserRoleService;
 import com.maozi.system.permission.domain.RoleDo;
 import com.maozi.system.permission.mapper.RoleMapper;
+import com.maozi.system.role.dto.v1.platform.RoleSaveUpdateParam;
 import com.maozi.system.user.api.UserService;
-import com.maozi.system.role.dto.v1.platform.SaveUpdateParam;
 import javax.annotation.Resource;
 import org.apache.dubbo.config.annotation.DubboReference;
 import org.springframework.stereotype.Service;
@@ -47,7 +47,7 @@ public class RoleServiceImpl extends BaseServiceImpl<RoleMapper,RoleDo,Void> imp
 		return count(MPJWrappers.lambdaJoin(RoleDo.builder().id(id).build())) > 0;
 	}
 	
-	protected Long restSaveUpdate(Long id,SaveUpdateParam param) {
+	protected Long restSaveUpdate(Long id, RoleSaveUpdateParam param) {
 		
 		id = saveUpdate(id,param);
 		

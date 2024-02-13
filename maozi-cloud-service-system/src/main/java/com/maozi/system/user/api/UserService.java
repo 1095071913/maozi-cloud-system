@@ -22,20 +22,6 @@ import com.maozi.oauth.token.dto.platform.param.ClientUserParam;
 import com.maozi.system.user.domain.UserDo;
 import java.util.List;
 
-/**
- * 
- * 	功能说明：User私有函数
- * 
- *	功能作者：彭晋龙 ( 联系方式QQ/微信：1095071913 )
- *
- *	创建日期：2019-09-02 : 1:36:00
- *
- *	版权归属：蓝河团队
- *
- *	协议说明：Apache2.0（ 文件顶端 ）
- *
- */
-
 public interface UserService extends MPJBaseService<UserDo> {
 	
 	<D> D getByUsername(String username,Class<D> clazz,String ... colums);

@@ -6,7 +6,7 @@ import com.maozi.base.AbstractBaseVomain;
 import com.maozi.base.enums.Status;
 import com.maozi.base.plugin.mapping.QueryMapping;
 import com.maozi.base.result.DropDownResult;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.List;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -15,34 +15,34 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class InfoVo extends AbstractBaseVomain {
+public class UserInfoVo extends AbstractBaseVomain {
 	
 	@JsonIgnore
-	@ApiModelProperty(hidden = true)
+	@Schema(hidden = true)
 	private Long id;
 	
-	@ApiModelProperty("账号")
+	@Schema(description = "账号")
 	private String username;
 	
-	@ApiModelProperty("名称")
+	@Schema(description = "名称")
 	private String name;
 	
 	@JsonIgnore
-	@ApiModelProperty(hidden = true)
+	@Schema(hidden = true)
 	private Long clientId;
 	
-	@ApiModelProperty("客户端")
+	@Schema(description = "客户端")
 	@QueryMapping(isService = true,serviceName = "rpcClientServiceV1",relationField = "clientId")
 	private DropDownResult client;
 	
-	@ApiModelProperty("图标")
+	@Schema(description = "图标")
 	private String icon;
 	
-	@ApiModelProperty("状态")
+	@Schema(description = "状态")
 	@JsonFormat(shape = JsonFormat.Shape.NUMBER_INT)
 	private Status status;
 	
-	@ApiModelProperty(value = "权限列表",dataType = "com.maozi.base.result.ListStringResult")
+	@Schema(description = "权限列表",ref = "ListStringResult")
 	@QueryMapping(isService = true,serviceName = "userRoleServiceImpl",functionName = "getRolesByUser",relationField = "id")
 	private List<Long> roleIds;
 

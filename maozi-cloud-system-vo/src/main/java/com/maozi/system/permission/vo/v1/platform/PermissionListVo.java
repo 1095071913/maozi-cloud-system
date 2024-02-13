@@ -2,7 +2,7 @@ package com.maozi.system.permission.vo.v1.platform;
 
 import com.maozi.base.AbstractBaseDtomain;
 import com.maozi.system.permission.enums.PermissionType;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -10,24 +10,24 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class ListVo extends AbstractBaseDtomain{
+public class PermissionListVo extends AbstractBaseDtomain{
 
-	@ApiModelProperty("标识")
+	@Schema(description = "标识")
 	private Long id;
 	
-	@ApiModelProperty("上级ID")
+	@Schema(description = "上级ID")
 	private Long parentId;
 	
-	@ApiModelProperty("名称")
+	@Schema(description = "名称")
 	private String name;
 	
-	@ApiModelProperty("图标")
+	@Schema(description = "图标")
 	private String icon;
 	
-	@ApiModelProperty("标识")
+	@Schema(description = "标识")
 	private String mark;
 	
-	@ApiModelProperty(value = "类型",dataType = "com.maozi.base.result.EnumResult")
+	@Schema(description = "类型",ref = "EnumResult")
 	private PermissionType type;
 	
 }

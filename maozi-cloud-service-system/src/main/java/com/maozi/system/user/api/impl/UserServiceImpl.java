@@ -29,9 +29,9 @@ import com.maozi.system.permission.api.RolePermissionService;
 import com.maozi.system.permission.api.UserRoleService;
 import com.maozi.system.user.api.UserService;
 import com.maozi.system.user.domain.UserDo;
-import com.maozi.system.user.mapper.UserMapper;
 import com.maozi.system.user.dto.global.dto.SystemUser;
-import com.maozi.system.user.dto.v1.platform.SaveUpdateParam;
+import com.maozi.system.user.dto.v1.platform.UserSaveUpdateParam;
+import com.maozi.system.user.mapper.UserMapper;
 import java.util.List;
 import javax.annotation.Resource;
 import org.apache.dubbo.config.annotation.DubboReference;
@@ -39,20 +39,6 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.crypto.password.MessageDigestPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
-  
-/**
- * 
- * 功能说明：用户服务实现
- * 
- * 功能作者：彭晋龙 ( 联系方式QQ/微信：1095071913 )
- *
- * 创建日期：2019-08-03 ：1:32:00
- *
- * 版权归属：蓝河团队
- *
- * 协议说明：Apache2.0（ 文件顶端 ）
- *
- */
 
 @Service
 public class UserServiceImpl extends BaseServiceImpl<UserMapper,UserDo,SystemUser> implements UserService {
@@ -111,7 +97,7 @@ public class UserServiceImpl extends BaseServiceImpl<UserMapper,UserDo,SystemUse
 		
 	}
 	
-	protected Long restSaveUpdate(Long id,SaveUpdateParam param) {
+	protected Long restSaveUpdate(Long id, UserSaveUpdateParam param) {
 		
 		if(isNotNull(id)) {
 			

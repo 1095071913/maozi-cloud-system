@@ -1,6 +1,6 @@
 package com.maozi.system.permission.vo.v1.platform;
 
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -8,12 +8,12 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class DropDownResult extends com.maozi.base.result.DropDownResult{
+public class PermissionDropDownResult extends com.maozi.base.result.DropDownResult{
 
-	@ApiModelProperty("上级ID")
+	@Schema(description = "上级ID")
 	private Long parentId;
 	
-	@ApiModelProperty("深度")
+	@Schema(description = "深度")
 	private Integer level;
 	
 }

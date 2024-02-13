@@ -15,12 +15,11 @@
  * 
  */
 
-package com.maozi.system.user.dto.v1.platform;
+package com.maozi.system.permission.dto.v1.platform;
 
 import com.maozi.base.AbstractBaseDtomain;
-import com.maozi.base.enums.Status;
-import io.swagger.annotations.ApiModelProperty;
-import java.util.List;
+import com.maozi.system.permission.enums.PermissionType;
+import io.swagger.v3.oas.annotations.media.Schema;
 import javax.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -43,36 +42,38 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class SaveUpdateParam extends AbstractBaseDtomain {
+public class PermissionSaveUpdateParam extends AbstractBaseDtomain {
 	
-	@NotNull(message = "账号不能为空")
-	@ApiModelProperty(value = "账号",required = true)
-	private String username;
+	@Schema(description = "上级ID")
+	private Long parentId;
 	
+	@Schema(description = "名称")
 	@NotNull(message = "名称不能为空")
-	@ApiModelProperty("名称")
 	private String name;
 	
-	@NotNull(message = "密码不能为空")
-	@ApiModelProperty("密码")
-	private String password;
-	
-	@NotNull(message = "客户端不能为空")
-	@ApiModelProperty("客户端")
-	private Long clientId;
-	
+	@Schema(description = "图标")
 	@NotNull(message = "图标不能为空")
-	@ApiModelProperty(value = "图标",required = true)
 	private String icon;
+
+	@Schema(description = "标识")
+	@NotNull(message = "标识不能为空")
+	private String mark;
 	
-	@NotNull(message = "状态不能为空")
-	@ApiModelProperty(value = "状态",required = true)
-	private Status status;
+	@Schema(description = "深度")
+	@NotNull(message = "深度不能为空")
+	private Integer level;
 	
-	@ApiModelProperty("绑定角色列表")
-	private List<Long> bindRoleIds;
+	@Schema(description = "路由")
+	private String route;
 	
-	@ApiModelProperty("解绑角色列表")
-	private List<Long> unbindRoleIds;
+	@Schema(description = "服务地址")
+	private String serviceUri;
+	
+	@Schema(description = "类型")
+	@NotNull(message = "类型不能为空")
+	private PermissionType type;
+	
+	@Schema(description = "排序")
+	private Integer sort;
 	
 }
